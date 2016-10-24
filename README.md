@@ -1,5 +1,7 @@
 # Document Promises
 
+[![Join the chat at https://gitter.im/jonathantneal/document-promises](https://badges.gitter.im/jonathantneal/document-promises.svg)](https://gitter.im/jonathantneal/document-promises?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 [![NPM Version][npm-img]][npm-url]
 [![Build Status][cli-img]][cli-url]
 [![Licensing][lic-image]][lic-url]
