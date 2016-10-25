@@ -1,0 +1,51 @@
+{
+  "name": "document-promises",
+  "version": "1.0.0",
+  "description": "Document loading states as Promises",
+  "author": "Jonathan Neal <jonathantneal@hotmail.com> (http://jonathantneal.com)",
+  "license": "CC0-1.0",
+  "repository": "jonathantneal/document-promises",
+  "homepage": "https://github.com/jonathantneal/document-promises#readme",
+  "bugs": "https://github.com/jonathantneal/document-promises/issues",
+  "main": "document-promises.js",
+  "files": [
+    "document-promises.js",
+    "LICENSE.md"
+  ],
+  "scripts": {
+    "test": "eslint document-promises.js && jscs document-promises.js"
+  },
+  "engines": {
+    "node": ">=4.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^3.8.1",
+    "eslint-config-10up": "github:jonathantneal/eslint-config-10up",
+    "jscs": "^3.0.7"
+  },
+  "eslintConfig": {
+    "extends": "10up",
+    "rules": {
+      "consistent-this": [
+        2,
+        "document"
+      ]
+    }
+  },
+  "jscsConfig": {
+    "preset": "10up"
+  },
+  "keywords": [
+    "document",
+    "dom",
+    "content",
+    "ready",
+    "loaded",
+    "interactive",
+    "state",
+    "promise"
+  ],
+  "dependencies": {
+    "jscs-config-10up": "github:jonathantneal/jscs-config-10up"
+  }
+}
