@@ -42,6 +42,10 @@ Using promises for state transitions is much more [developer friendly].
 
 [Document Promises] is [public domain], dependency free, and 195 bytes when minified and gzipped.
 
+### Any known limitations?
+
+If this polyfill runs in a script that uses `defer` then `contentLoaded` will resolve before the `DOMContentLoaded` event.
+
 [Document Promises]: https://github.com/jonathantneal/document-promises
 
 [document.interactive]: https://html.spec.whatwg.org/multipage/dom.html#dom-document-interactive
