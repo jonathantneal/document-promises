@@ -50,7 +50,7 @@ contentLoaded.then(function () {
 });
 ```
 
-Developers may also polyfill the proposal at their own risk.
+Developers are strongly advised not to assign these promises to `document`, as the standard may still change substantially and such code would be future-incompatible.
 
 ```js
 document.contentLoaded = contentLoaded;
@@ -68,7 +68,7 @@ Using promises for state transitions is much more [developer friendly].
 
 ### What’s the catch?
 
-[Document Promises] is [public domain], dependency free, and 236 bytes or less when minified and gzipped.
+[Document Promises] is [public domain], dependency free, and 252 bytes or less when minified and gzipped.
 
 ### Any known limitations?
 
