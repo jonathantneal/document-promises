@@ -14,6 +14,6 @@ let promisify = (type, readyState) => {
 	});
 };
 
-export let interactive = promisify('readystatechange', /r|m/);
-export let contentLoaded = promisify('DOMContentLoaded', /r|m/);
-export let loaded = promisify('readystatechange', /m/);
+export let interactive = promisify('readystatechange', /^(?:interactive|complete)$/);
+export let contentLoaded = promisify('DOMContentLoaded', /^(?:interactive|complete)$/);
+export let loaded = promisify('readystatechange', /^complete$/);
