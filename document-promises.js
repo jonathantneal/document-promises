@@ -23,7 +23,7 @@ if (!document.loaded) {
 		// https://msdn.microsoft.com/en-us/library/ms534358(v=vs.85).aspx
 
 		// document promises
-		document.interactive = documentPromise('readystatechange', /r/);
+		document.interactive = documentPromise('readystatechange', /r|m/);
 		document.contentLoaded = documentPromise('DOMContentLoaded', /r|m/);
 		document.loaded = documentPromise('readystatechange', /m/);
 	})();
