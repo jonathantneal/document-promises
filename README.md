@@ -6,7 +6,7 @@
 [![Changelog][log-image]][log-url]
 [![Gitter Chat][git-image]][git-url]
 
-[Document Promises] is a polyfill for [document.interactive], [document.contentLoaded], and [document.loaded] which allow you to run code after specific states of the document.
+[Document Promises] is a ponyfill for [document.interactive], [document.contentLoaded], and [document.loaded] which allow you to run code after specific states of the document.
 
 ```js
 fetch('data.json').then(function (data) {
@@ -28,6 +28,34 @@ fetch('data.json').then(function (data) {
 
 [document.loaded] is a promise that fulfills when the when the document's `readyState` becomes `complete`.
 
+## Usage
+
+[Document Promises] does not attach properties to the document by default, because no browsers have yet implemented this behavior.
+
+Instead, developers may import the features individually.
+
+```js
+// Example ES6 import
+import contentLoaded from 'document-promises';
+
+// Example CommonJS import
+require('document-promises').contentLoaded;
+```
+
+Developers may use the ponyfill as-is immediately.
+
+```js
+contentLoaded.then(function () {
+  /* document is ready */
+});
+```
+
+Developers may also polyfill the proposal at their own risk.
+
+```js
+document.contentLoaded = contentLoaded;
+```
+
 ## FAQ
 
 ### What’s the difference between these promises and DOMContentLoaded?
@@ -40,7 +68,7 @@ Using promises for state transitions is much more [developer friendly].
 
 ### What’s the catch?
 
-[Document Promises] is [public domain], dependency free, and 195 bytes when minified and gzipped.
+[Document Promises] is [public domain], dependency free, and 236 bytes or less when minified and gzipped.
 
 ### Any known limitations?
 
