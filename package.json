@@ -15,7 +15,7 @@
     "LICENSE.md"
   ],
   "scripts": {
-    "build": "babel document-promises.es6 --out-file document-promises.js",
+    "prepublish": "babel document-promises.es6 --out-file document-promises.js",
     "test": "eslint document-promises.es6 && jscs document-promises.es6"
   },
   "engines": {
