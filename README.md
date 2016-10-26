@@ -18,7 +18,7 @@ fetch('data.json').then(function (data) {
 
 ### document.interactive
 
-[document.interactive] is a promise that fulfills when the when the document's `readyState` becomes `interactive`.
+[document.interactive] is a promise that fulfills when the document's `readyState` becomes `interactive`.
 
 ### document.contentLoaded
 
@@ -26,7 +26,7 @@ fetch('data.json').then(function (data) {
 
 ### document.loaded
 
-[document.loaded] is a promise that fulfills when the when the document's `readyState` becomes `complete`.
+[document.loaded] is a promise that fulfills when the document's `readyState` becomes `complete`.
 
 ## Usage
 
