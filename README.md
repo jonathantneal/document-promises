@@ -50,7 +50,7 @@ contentLoaded.then(function () {
 });
 ```
 
-Developers are strongly advised not to assign these promises to `document`, as the standard may still change substantially and such code would be future-incompatible.
+Developers are strongly advised not to assign these promises to `document`, as the standard may still change substantially, and then such code would be future-incompatible.
 
 ```js
 document.contentLoaded = contentLoaded;
