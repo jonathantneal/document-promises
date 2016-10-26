@@ -52,10 +52,6 @@ contentLoaded.then(function () {
 
 Developers are strongly advised not to assign these promises to `document`, as the standard may still change substantially, and then such code would be future-incompatible.
 
-```js
-document.contentLoaded = contentLoaded;
-```
-
 ## FAQ
 
 ### What’s the difference between these promises and DOMContentLoaded?
