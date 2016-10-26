@@ -58,6 +58,7 @@
     "loaded",
     "interactive",
     "state",
-    "promise"
+    "promise",
+    "ponyfill"
   ]
 }
