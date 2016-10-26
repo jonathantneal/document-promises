@@ -1,6 +1,6 @@
 {
   "name": "document-promises",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Document loading states as Promises",
   "author": "Jonathan Neal <jonathantneal@hotmail.com> (http://jonathantneal.com)",
   "license": "CC0-1.0",
@@ -8,28 +8,43 @@
   "homepage": "https://github.com/jonathantneal/document-promises#readme",
   "bugs": "https://github.com/jonathantneal/document-promises/issues",
   "main": "document-promises.js",
+  "jsnext:main": "document-promises.es6",
   "files": [
+    "document-promises.es6",
     "document-promises.js",
     "LICENSE.md"
   ],
   "scripts": {
-    "test": "eslint document-promises.js && jscs document-promises.js"
+    "prepublish": "babel document-promises.es6 --out-file document-promises.js",
+    "test": "eslint document-promises.es6 && jscs document-promises.es6"
   },
   "engines": {
     "node": ">=4.0.0"
   },
   "devDependencies": {
+    "babel-cli": "^6.18.0",
+    "babel-preset-es2015": "^6.18.0",
     "eslint": "^3.8.1",
     "eslint-config-10up": "github:jonathantneal/eslint-config-10up",
-    "jscs": "^3.0.7"
+    "jscs": "^3.0.7",
+    "jscs-config-10up": "github:jonathantneal/jscs-config-10up"
+  },
+  "babel": {
+    "presets": [
+      [
+        "es2015", {
+          "loose": true,
+          "modules": "commonjs"
+        }
+      ]
+    ]
   },
   "eslintConfig": {
     "extends": "10up",
-    "rules": {
-      "consistent-this": [
-        2,
-        "document"
-      ]
+    "parserOptions": {
+      "ecmaVersion": 6,
+      "impliedStrict": true,
+      "sourceType": "module"
     }
   },
   "jscsConfig": {
@@ -44,8 +59,5 @@
     "interactive",
     "state",
     "promise"
-  ],
-  "dependencies": {
-    "jscs-config-10up": "github:jonathantneal/jscs-config-10up"
-  }
+  ]
 }
