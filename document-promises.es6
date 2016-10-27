@@ -1,6 +1,6 @@
-let promisify = (type, readyState) => {
+const promisify = (type, readyState) => {
 	return new Promise((resolve) => {
-		let listener = () => {
+		const listener = () => {
 			if (readyState.test(document.readyState)) {
 				document.removeEventListener(type, listener);
 
@@ -14,6 +14,6 @@ let promisify = (type, readyState) => {
 	});
 };
 
-export let interactive = promisify('readystatechange', /^(?:interactive|complete)$/);
-export let contentLoaded = promisify('DOMContentLoaded', /^(?:interactive|complete)$/);
-export let loaded = promisify('readystatechange', /^complete$/);
+export const interactive = promisify('readystatechange', /^(?:interactive|complete)$/);
+export const contentLoaded = promisify('DOMContentLoaded', /^(?:interactive|complete)$/);
+export const loaded = promisify('readystatechange', /^complete$/);
