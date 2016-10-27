@@ -1,12 +1,16 @@
 # Document Promises
 
+> Document loading states as Promises
+
 [![NPM Version][npm-img]][npm-url]
 [![Build Status][cli-img]][cli-url]
 [![Licensing][lic-image]][lic-url]
 [![Changelog][log-image]][log-url]
 [![Gitter Chat][git-image]][git-url]
 
-[Document Promises] is a ponyfill for [document.interactive], [document.contentLoaded], and [document.loaded] which allow you to run code after specific states of the document.
+[Document Promises] is a ponyfill for [document.interactive],
+[document.contentLoaded], and [document.loaded] which allow you to run code
+after specific states of the document.
 
 ```js
 fetch('data.json').then(function (data) {
@@ -18,31 +22,34 @@ fetch('data.json').then(function (data) {
 
 ### document.interactive
 
-[document.interactive] is a promise that fulfills when the document's `readyState` becomes `interactive`.
+[document.interactive] is a promise that fulfills when the document's
+`readyState` becomes `interactive`.
 
 ### document.contentLoaded
 
-[document.contentLoaded] is a promise that fulfills when the `DOMContentLoaded` event fires on the document.
+[document.contentLoaded] is a promise that fulfills when the `DOMContentLoaded`
+event fires on the document.
 
 ### document.loaded
 
-[document.loaded] is a promise that fulfills when the document's `readyState` becomes `complete`.
+[document.loaded] is a promise that fulfills when the document's `readyState`
+becomes `complete`.
 
 ## Usage
 
-[Document Promises] does not attach properties to the document by default, because no browsers have yet implemented this behavior.
-
-Instead, developers may import the features individually.
+Because [Document Promises] is a ponyfill, it does not attach `interactive`,
+`contentLoaded` or `complete` to the `document` by default. Instead, developers
+are encouraged to import the features individually.
 
 ```js
-// Example ES6 import
+// ES6 example
 import contentLoaded from 'document-promises';
 
-// Example CommonJS import
-require('document-promises').contentLoaded;
+// CommonJS example
+var contentLoaded = require('document-promises').contentLoaded;
 ```
 
-Developers may use the ponyfill as-is immediately.
+Developers may use the ponyfill as-is.
 
 ```js
 contentLoaded.then(function () {
@@ -50,7 +57,9 @@ contentLoaded.then(function () {
 });
 ```
 
-Developers are strongly advised not to assign these promises to `document`, as the standard may still change substantially, and then such code would be future-incompatible.
+Developers are strongly advised not to attach these promises to `document`, as
+the standard may still change substantially, and then such code would be
+future-incompatible.
 
 ## FAQ
 
@@ -60,15 +69,21 @@ Using promises for state transitions is much more [developer friendly].
 
 ### What’s the browser support?
 
-[Document Promises] works all major 2014+ browsers, including Chrome 33+, Edge 12+, Firefox 29+, Opera 20+, Safari 7+, iOS 8+, and Android 4.4.4 & 53+. With [Promise] and [EventListener] polyfilled, support goes back to all major 2001+ browsers, including Chrome 1+, Firefox 1+, Internet Explorer 5+, iOS 1+, Netscape Navigator 6+, Opera 7+, Safari 1+, and Android 1+.
+[Document Promises] works all major 2014+ browsers, including Chrome 33+,
+Edge 12+, Firefox 29+, Opera 20+, Safari 7+, iOS 8+, and Android 4.4.4 & 53+.
+With [Promise] and [EventListener] polyfilled, support goes back to all major
+2001+ browsers, including Chrome 1+, Firefox 1+, Internet Explorer 5+, iOS 1+,
+Netscape Navigator 6+, Opera 7+, Safari 1+, and Android 1+.
 
 ### What’s the catch?
 
-[Document Promises] is [public domain], dependency free, and 252 bytes or less when minified and gzipped.
+[Document Promises] is [public domain], dependency free, and 252 bytes or less
+when minified and gzipped.
 
 ### Any known limitations?
 
-If this polyfill runs in a script that uses `defer` then `contentLoaded` will resolve before the `DOMContentLoaded` event.
+If this polyfill runs in a script that uses `defer` then `contentLoaded` will
+resolve before the `DOMContentLoaded` event.
 
 [Document Promises]: https://github.com/jonathantneal/document-promises
 

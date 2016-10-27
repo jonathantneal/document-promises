@@ -1,4 +1,4 @@
-# Changes to document-promises
+# Changes to Document Promises
 
 ### 2.0.0 (October 25, 2016)
 
