@@ -11,8 +11,7 @@
   "jsnext:main": "document-promises.es6",
   "files": [
     "document-promises.es6",
-    "document-promises.js",
-    "LICENSE.md"
+    "document-promises.js"
   ],
   "scripts": {
     "prepublish": "babel document-promises.es6 --out-file document-promises.js",
@@ -42,8 +41,6 @@
   "eslintConfig": {
     "extends": "10up",
     "parserOptions": {
-      "ecmaVersion": 6,
-      "impliedStrict": true,
       "sourceType": "module"
     }
   },
