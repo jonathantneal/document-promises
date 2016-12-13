@@ -43,7 +43,7 @@ are encouraged to import the features individually.
 
 ```js
 // ES6 example
-import contentLoaded from 'document-promises';
+import { contentLoaded } from 'document-promises';
 
 // CommonJS example
 var contentLoaded = require('document-promises').contentLoaded;
