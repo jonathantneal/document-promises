@@ -8,26 +8,27 @@
 [![Changelog][log-image]][log-url]
 [![Gitter Chat][git-image]][git-url]
 
-[Document Promises] is a ponyfill for [document.interactive],
+[Document Promises] is a ponyfill for [document.parsed],
 [document.contentLoaded], and [document.loaded] which allow you to run code
 after specific states of the document.
 
 ```js
 fetch('data.json').then(function (data) {
-  document.interactive.then(function () {
+  document.parsed.then(function () {
     document.querySelectorAll('.username').textContent = data.username;
   });
 });
 ```
 
-### document.interactive
+### document.parsed
 
-[document.interactive] is a promise that fulfills when the document's
-`readyState` becomes `interactive`.
+[document.parsed] is a promise that fulfills when the document's
+`readyState` becomes `interactive` or `complete`.
 
 ### document.contentLoaded
 
-[document.contentLoaded] is a promise that fulfills when the `DOMContentLoaded`
+[document.contentLoaded] is a promise that fulfills when the document's
+`readyState` becomes `interactive` or `complete` or the `DOMContentLoaded`
 event fires on the document.
 
 ### document.loaded
@@ -37,7 +38,7 @@ becomes `complete`.
 
 ## Usage
 
-Because [Document Promises] is a ponyfill, it does not attach `interactive`,
+Because [Document Promises] is a ponyfill, it does not attach `parsed`,
 `contentLoaded` or `complete` to the `document` by default. Instead, developers
 are encouraged to import the features individually.
 
@@ -87,7 +88,7 @@ resolve before the `DOMContentLoaded` event.
 
 [Document Promises]: https://github.com/jonathantneal/document-promises
 
-[document.interactive]: https://html.spec.whatwg.org/multipage/dom.html#dom-document-interactive
+[document.parsed]: https://html.spec.whatwg.org/multipage/dom.html#dom-document-parsed
 [document.contentLoaded]: https://html.spec.whatwg.org/multipage/dom.html#dom-document-contentLoaded
 [document.loaded]: https://html.spec.whatwg.org/multipage/dom.html#dom-document-loaded
 

@@ -1,6 +1,6 @@
 {
   "name": "document-promises",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "description": "Document loading states as Promises",
   "author": "Jonathan Neal <jonathantneal@hotmail.com> (http://jonathantneal.com)",
   "license": "CC0-1.0",
@@ -14,39 +14,49 @@
     "document-promises.js"
   ],
   "scripts": {
-    "prepublish": "babel document-promises.es6 --out-file document-promises.js",
-    "test": "eslint document-promises.es6 && jscs document-promises.es6"
+    "build": "babel document-promises.es6 --out-file document-promises.js",
+    "clean": "git clean -X -d -f",
+    "pre-commit": "echo 'Running pre-commit checks...' && exit 0",
+    "prepublish": "npm run test && npm run build",
+    "test": "npm run test:ec && npm run test:es",
+    "test:ec": "echint",
+    "test:es": "eslint document-promises.es6"
   },
   "engines": {
-    "node": ">=4.0.0"
+    "node": ">=4.5.0"
   },
   "devDependencies": {
     "babel-cli": "^6.18.0",
-    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-env": "^1.1.8",
+    "echint": "^3.0.0",
+    "echint-config-dev": "^1.0.0",
     "eslint": "^3.8.1",
-    "eslint-config-10up": "github:jonathantneal/eslint-config-10up",
-    "jscs": "^3.0.7",
-    "jscs-config-10up": "github:jonathantneal/jscs-config-10up"
+    "eslint-config-dev": "^1.0.0",
+    "pre-commit": "^1.2.2"
   },
   "babel": {
     "presets": [
       [
-        "es2015", {
-          "loose": true,
-          "modules": "commonjs"
+        "env",
+        {
+          "loose": true
         }
       ]
     ]
   },
+  "browserslist": [
+    "last 2 versions"
+  ],
+  "echint": {
+    "extends": "dev"
+  },
   "eslintConfig": {
-    "extends": "10up",
-    "parserOptions": {
-      "sourceType": "module"
-    }
+    "extends": "dev"
   },
-  "jscsConfig": {
-    "preset": "10up"
-  },
+  "pre-commit": [
+    "pre-commit",
+    "test"
+  ],
   "keywords": [
     "document",
     "dom",
@@ -55,7 +65,9 @@
     "loaded",
     "interactive",
     "state",
+    "parsed",
     "promise",
-    "ponyfill"
+    "ponyfill",
+    "polyfill"
   ]
 }

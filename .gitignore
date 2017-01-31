@@ -1,3 +1,9 @@
 node_modules
-npm-debug.log
+
+.*
+!.editorconfig
+!.config.js
+!.travis.js
+*.log*
+
 document-promises.js
