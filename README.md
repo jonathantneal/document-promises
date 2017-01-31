@@ -4,9 +4,9 @@
 
 [![NPM Version][npm-img]][npm-url]
 [![Build Status][cli-img]][cli-url]
-[![Licensing][lic-image]][lic-url]
-[![Changelog][log-image]][log-url]
-[![Gitter Chat][git-image]][git-url]
+[![Licensing][lic-img]][lic-url]
+[![Changelog][log-img]][log-url]
+[![Gitter Chat][git-img]][git-url]
 
 [Document Promises] is a ponyfill for [document.parsed],
 [document.contentLoaded], and [document.loaded] which allow you to run code
@@ -22,19 +22,15 @@ fetch('data.json').then(function (data) {
 
 ### document.parsed
 
-[document.parsed] is a promise that fulfills when the document's
-`readyState` becomes `interactive` or `complete`.
+[document.parsed] is a promise that fulfills when the document is parsed and `readyState` is `interactive`, before deferred and async scripts have run.
 
 ### document.contentLoaded
 
-[document.contentLoaded] is a promise that fulfills when the document's
-`readyState` becomes `interactive` or `complete` or the `DOMContentLoaded`
-event fires on the document.
+[document.contentLoaded] is a promise that fulfills when the document is parsed, blocking scripts have completed, and `DOMContentLoaded` fires.
 
 ### document.loaded
 
-[document.loaded] is a promise that fulfills when the document's `readyState`
-becomes `complete`.
+[document.loaded] is a promise that fulfills when the document is parsed, blocking scripts have completed, images, scripts, links and sub-frames have finished loading, and `readyState` is `complete`.
 
 ## Usage
 
@@ -66,7 +62,7 @@ future-incompatible.
 
 ### What’s the difference between these promises and DOMContentLoaded?
 
-Using promises for state transitions is much more [developer friendly].
+One might easily miss an event like `DOMContentLoaded` if a script fires late, whereas a promise like `contentLoaded` guarantees the code will execute. Furthermore, using promises for state transitions is much more [developer friendly].
 
 ### What’s the browser support?
 
@@ -103,8 +99,8 @@ resolve before the `DOMContentLoaded` event.
 [cli-url]: https://travis-ci.org/jonathantneal/document-promises
 [cli-img]: https://img.shields.io/travis/jonathantneal/document-promises.svg?style=flat-square
 [lic-url]: LICENSE.md
-[lic-image]: https://img.shields.io/npm/l/document-promises.svg?style=flat-square
+[lic-img]: https://img.shields.io/npm/l/document-promises.svg?style=flat-square
 [log-url]: CHANGELOG.md
-[log-image]: https://img.shields.io/badge/changelog-md-blue.svg?style=flat-square
+[log-img]: https://img.shields.io/badge/changelog-md-blue.svg?style=flat-square
 [git-url]: https://gitter.im/jonathantneal/document-promises
-[git-image]: https://img.shields.io/badge/chat-gitter-blue.svg?style=flat-square
+[git-img]: https://img.shields.io/badge/chat-gitter-blue.svg?style=flat-square
