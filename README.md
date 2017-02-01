@@ -22,15 +22,19 @@ fetch('data.json').then(function (data) {
 
 ### document.parsed
 
-[document.parsed] is a promise that fulfills when the document is parsed and `readyState` is `interactive`, before deferred and async scripts have run.
+[document.parsed] is a promise that fulfills when the document is parsed and
+`readyState` is `interactive`, before deferred and async scripts have run.
 
 ### document.contentLoaded
 
-[document.contentLoaded] is a promise that fulfills when the document is parsed, blocking scripts have completed, and `DOMContentLoaded` fires.
+[document.contentLoaded] is a promise that fulfills when the document is
+parsed, blocking scripts have completed, and `DOMContentLoaded` fires.
 
 ### document.loaded
 
-[document.loaded] is a promise that fulfills when the document is parsed, blocking scripts have completed, images, scripts, links and sub-frames have finished loading, and `readyState` is `complete`.
+[document.loaded] is a promise that fulfills when the document is parsed,
+blocking scripts have completed, images, scripts, links and sub-frames have
+finished loading, and `readyState` is `complete`.
 
 ## Usage
 
@@ -62,7 +66,10 @@ future-incompatible.
 
 ### What’s the difference between these promises and DOMContentLoaded?
 
-One might easily miss an event like `DOMContentLoaded` if a script fires late, whereas a promise like `contentLoaded` guarantees the code will execute. Furthermore, using promises for state transitions is much more [developer friendly].
+One might easily miss an event like `DOMContentLoaded` if a script fires late,
+whereas a promise like `contentLoaded` guarantees the code will execute.
+Furthermore, using promises for state transitions is much more
+[developer friendly].
 
 ### What’s the browser support?
 
@@ -77,10 +84,10 @@ Netscape Navigator 6+, Opera 7+, Safari 1+, and Android 1+.
 [Document Promises] is [public domain], dependency free, and 252 bytes or less
 when minified and gzipped.
 
-### Any known limitations?
+### Are there known limitations?
 
-If this polyfill runs in a script that uses `defer` then `contentLoaded` will
-resolve before the `DOMContentLoaded` event.
+Yes, if this polyfill runs in a script that uses `defer` then `contentLoaded`
+will resolve before the `DOMContentLoaded` event.
 
 [Document Promises]: https://github.com/jonathantneal/document-promises
 
