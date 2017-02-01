@@ -89,6 +89,37 @@ when minified and gzipped.
 Yes, if this polyfill runs in a script that uses `defer` then `contentLoaded`
 will resolve before the `DOMContentLoaded` event.
 
+### Can this be done without a library?
+
+Yes, if something needs to run once the document has reached a certain state, one of the following micro-optimized functions will suffice.
+
+```js
+// callback once the document is parsed (112 bytes minified/gzipped)
+!function d() {
+    /c/.test(document.readyState)
+    ? document.removeEventListener("readystatechange", d) | /* callback */
+    : document.addEventListener("readystatechange", d)
+}()
+```
+
+```js
+// callback once the document is content loaded (115 bytes minified/gzipped)
+!function d() {
+    /c/.test(document.readyState)
+    ? document.removeEventListener("DOMContentLoaded", d) | /* callback */
+    : document.addEventListener("DOMContentLoaded", d)
+}()
+```
+
+```js
+// callback once the document is fully loaded (112 bytes minified/gzipped)
+!function d() {
+    /m/.test(document.readyState)
+    ? document.removeEventListener("DOMContentLoaded", d) | /* callback */
+    : document.addEventListener("DOMContentLoaded", d)
+}()
+```
+
 [Document Promises]: https://github.com/jonathantneal/document-promises
 
 [document.parsed]: https://html.spec.whatwg.org/multipage/dom.html#dom-document-parsed
