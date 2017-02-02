@@ -1,6 +1,6 @@
 {
   "name": "document-promises",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "Document loading states as Promises",
   "author": "Jonathan Neal <jonathantneal@hotmail.com> (http://jonathantneal.com)",
   "license": "CC0-1.0",
@@ -8,7 +8,7 @@
   "homepage": "https://github.com/jonathantneal/document-promises#readme",
   "bugs": "https://github.com/jonathantneal/document-promises/issues",
   "main": "document-promises.js",
-  "jsnext:main": "document-promises.es6",
+  "module": "document-promises.es6",
   "files": [
     "document-promises.es6",
     "document-promises.js"
