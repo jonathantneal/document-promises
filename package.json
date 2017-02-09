@@ -1,6 +1,6 @@
 {
   "name": "document-promises",
-  "version": "3.1.1",
+  "version": "3.1.2",
   "description": "Document loading states as Promises",
   "author": "Jonathan Neal <jonathantneal@hotmail.com> (http://jonathantneal.com)",
   "license": "CC0-1.0",
