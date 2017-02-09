@@ -120,6 +120,18 @@ Yes, if something needs to run once the document has reached a certain state, on
 }()
 ```
 
+For convenience, each of these callback versions are available as modules.
+
+```js
+import onParsed from 'document-promises/callback-versions/onParsed';
+
+onParsed(
+  () => {
+    // do something on parsed
+  }
+);
+```
+
 [Document Promises]: https://github.com/jonathantneal/document-promises
 
 [document.parsed]: https://html.spec.whatwg.org/multipage/dom.html#dom-document-parsed
