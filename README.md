@@ -94,18 +94,18 @@ will resolve before the `DOMContentLoaded` event.
 Yes, if something needs to run once the document has reached a certain state, one of the following micro-optimized functions will suffice.
 
 ```js
-// callback once the document is parsed (112 bytes minified/gzipped)
+// callback once the document is parsed (102 bytes minified/gzipped)
 !function d() {
-    /c/.test(document.readyState)
+    document.body
     ? document.removeEventListener("readystatechange", d) | /* callback */
     : document.addEventListener("readystatechange", d)
 }()
 ```
 
 ```js
-// callback once the document is content loaded (115 bytes minified/gzipped)
+// callback once the document is content loaded (99 bytes minified/gzipped)
 !function d() {
-    /c/.test(document.readyState)
+    document.body
     ? document.removeEventListener("DOMContentLoaded", d) | /* callback */
     : document.addEventListener("DOMContentLoaded", d)
 }()
