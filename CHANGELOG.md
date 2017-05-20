@@ -1,5 +1,19 @@
 # Changes to Document Promises
 
+### 3.1.3 (May 20, 2017)
+
+- Fix callback version of onLoaded
+- Support Node v4
+- Update developer dependencies
+
+### 3.1.2 (February 8, 2017)
+
+- Fix callback versions for both Chrome and old IE
+
+### 3.1.1 (February 8, 2017)
+
+- Update callback versions of onParsed, onContentLoaded
+
 ### 3.1.0 (February 2, 2017)
 
 - Add callback versions for promise-free situations.
