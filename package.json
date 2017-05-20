@@ -24,7 +24,7 @@
     "test:es": "eslint document-promises.es6"
   },
   "engines": {
-    "node": ">=4.5.0"
+    "node": ">=4.0.0"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
