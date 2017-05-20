@@ -27,12 +27,12 @@
     "node": ">=4.5.0"
   },
   "devDependencies": {
-    "babel-cli": "^6.18.0",
-    "babel-preset-env": "^1.1.8",
-    "echint": "^3.0.0",
+    "babel-cli": "^6.24.1",
+    "babel-preset-env": "^1.4.0",
+    "echint": "^4.0.1",
     "echint-config-dev": "^1.0.0",
-    "eslint": "^3.8.1",
-    "eslint-config-dev": "^1.0.0",
+    "eslint": "^3.19.0",
+    "eslint-config-dev": "^2.0.0",
     "pre-commit": "^1.2.2"
   },
   "babel": {
