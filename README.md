@@ -115,8 +115,8 @@ Yes, if something needs to run once the document has reached a certain state, on
 // callback once the document is fully loaded (112 bytes minified/gzipped)
 !function d() {
     /m/.test(document.readyState)
-    ? document.removeEventListener("DOMContentLoaded", d) | /* callback */
-    : document.addEventListener("DOMContentLoaded", d)
+    ? document.removeEventListener("readystatechange", d) | /* callback */
+    : document.addEventListener("readystatechange", d)
 }()
 ```
 
