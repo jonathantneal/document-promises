@@ -70,5 +70,6 @@
     "promise",
     "ponyfill",
     "polyfill"
-  ]
+  ],
+  "types": "./document-promises.d.ts"
 }
