@@ -1,5 +1,10 @@
 # Changes to Document Promises
 
+### 4.0.0 (August 10, 2018)
+
+- Support Node v6 and up
+- Update project configuration
+
 ### 3.1.3 (May 20, 2017)
 
 - Fix callback version of onLoaded

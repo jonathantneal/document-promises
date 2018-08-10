@@ -1,5 +1,5 @@
 // thenfied document ready states
-const thenify = (type, readyState) => new Promise((resolve) => {
+const thenify = (type, readyState) => new Promise(resolve => {
 	const listener = () => {
 		if (readyState.test(document.readyState)) {
 			document.removeEventListener(type, listener);

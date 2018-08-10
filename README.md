@@ -1,24 +1,27 @@
-# Document Promises
-
-> Document loading states as Promises
+# Document Promises [<img src="https://jonathantneal.github.io/dom-logo.svg" alt="PostCSS" width="90" height="90" align="right">][Document Promises]
 
 [![NPM Version][npm-img]][npm-url]
 [![Build Status][cli-img]][cli-url]
 [![Licensing][lic-img]][lic-url]
-[![Changelog][log-img]][log-url]
-[![Gitter Chat][git-img]][git-url]
+[![Support Chat][git-img]][git-url]
 
 [Document Promises] is a ponyfill for [document.parsed],
 [document.contentLoaded], and [document.loaded] which allow you to run code
 after specific states of the document.
 
 ```js
-fetch('data.json').then(function (data) {
-  document.parsed.then(function () {
+import { parsed } from 'document-promises';
+
+fetch('data.json').then(data => {
+  parsed.then(() => {
     document.querySelectorAll('.username').textContent = data.username;
   });
 });
 ```
+
+[Document Promises]  has multi-implementer interest and tests, but is not yet a
+standard due to
+[implementers not actually prioritizing it highly enough].
 
 ### document.parsed
 
@@ -43,17 +46,16 @@ Because [Document Promises] is a ponyfill, it does not attach `parsed`,
 are encouraged to import the features individually.
 
 ```js
-// ES6 example
 import { contentLoaded } from 'document-promises';
 
 // CommonJS example
-var contentLoaded = require('document-promises').contentLoaded;
+const contentLoaded = require('document-promises').contentLoaded;
 ```
 
 Developers may use the ponyfill as-is.
 
 ```js
-contentLoaded.then(function () {
+contentLoaded.then(() => {
   /* document is ready */
 });
 ```
@@ -96,27 +98,27 @@ Yes, if something needs to run once the document has reached a certain state, on
 ```js
 // callback once the document is parsed (119 bytes minified/gzipped)
 !function d() {
-    /c/.test(document.readyState) && document.body
-    ? document.removeEventListener("readystatechange", d) | /* callback */
-    : document.addEventListener("readystatechange", d)
+  /c/.test(document.readyState) && document.body
+  ? document.removeEventListener("readystatechange", d) | /* callback */
+  : document.addEventListener("readystatechange", d)
 }()
 ```
 
 ```js
 // callback once the document is content loaded (120 bytes minified/gzipped)
 !function d() {
-    /c/.test(document.readyState) && document.body
-    ? document.removeEventListener("DOMContentLoaded", d) | /* callback */
-    : document.addEventListener("DOMContentLoaded", d)
+  /c/.test(document.readyState) && document.body
+  ? document.removeEventListener("DOMContentLoaded", d) | /* callback */
+  : document.addEventListener("DOMContentLoaded", d)
 }()
 ```
 
 ```js
 // callback once the document is fully loaded (112 bytes minified/gzipped)
 !function d() {
-    /m/.test(document.readyState)
-    ? document.removeEventListener("readystatechange", d) | /* callback */
-    : document.addEventListener("readystatechange", d)
+  /m/.test(document.readyState)
+  ? document.removeEventListener("readystatechange", d) | /* callback */
+  : document.addEventListener("readystatechange", d)
 }()
 ```
 
@@ -125,11 +127,9 @@ For convenience, each of these callback versions are available as modules.
 ```js
 import onParsed from 'document-promises/callback-versions/onParsed';
 
-onParsed(
-  () => {
-    // do something on parsed
-  }
-);
+onParsed(() => {
+  // do something on parsed
+});
 ```
 
 [Document Promises]: https://github.com/jonathantneal/document-promises
@@ -145,12 +145,12 @@ onParsed(
 [public domain]: LICENSE.md
 
 [npm-url]: https://www.npmjs.com/package/document-promises
-[npm-img]: https://img.shields.io/npm/v/document-promises.svg?style=flat-square
+[npm-img]: https://img.shields.io/npm/v/document-promises.svg
 [cli-url]: https://travis-ci.org/jonathantneal/document-promises
-[cli-img]: https://img.shields.io/travis/jonathantneal/document-promises.svg?style=flat-square
+[cli-img]: https://img.shields.io/travis/jonathantneal/document-promises/master.svg
 [lic-url]: LICENSE.md
-[lic-img]: https://img.shields.io/npm/l/document-promises.svg?style=flat-square
-[log-url]: CHANGELOG.md
-[log-img]: https://img.shields.io/badge/changelog-md-blue.svg?style=flat-square
+[lic-img]: https://img.shields.io/npm/l/document-promises.svg
 [git-url]: https://gitter.im/jonathantneal/document-promises
-[git-img]: https://img.shields.io/badge/chat-gitter-blue.svg?style=flat-square
+[git-img]: https://img.shields.io/badge/support-chat-blue.svg
+
+[implementers not actually prioritizing it highly enough]: https://github.com/whatwg/dom/issues/568#issuecomment-363633336
