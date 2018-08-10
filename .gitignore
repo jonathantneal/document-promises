@@ -1,9 +1,6 @@
 node_modules
-
 .*
 !.editorconfig
-!.config.js
 !.travis.js
 *.log*
-
-document-promises.js
+*.cjs.js*

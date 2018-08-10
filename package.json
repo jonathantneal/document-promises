@@ -1,44 +1,41 @@
 {
   "name": "document-promises",
-  "version": "3.1.3",
+  "version": "4.0.0",
   "description": "Document loading states as Promises",
   "author": "Jonathan Neal <jonathantneal@hotmail.com> (http://jonathantneal.com)",
   "license": "CC0-1.0",
   "repository": "jonathantneal/document-promises",
   "homepage": "https://github.com/jonathantneal/document-promises#readme",
   "bugs": "https://github.com/jonathantneal/document-promises/issues",
-  "main": "document-promises.js",
-  "module": "document-promises.es6",
+  "main": "document-promises.cjs.js",
+  "module": "document-promises.js",
+  "types": "document-promises.d.ts",
   "files": [
     "callback-versions",
-    "document-promises.es6",
+    "document-promises.cjs.js",
+    "document-promises.d.ts",
     "document-promises.js"
   ],
   "scripts": {
-    "build": "babel document-promises.es6 --out-file document-promises.js",
-    "clean": "git clean -X -d -f",
-    "pre-commit": "echo 'Running pre-commit checks...' && exit 0",
+    "build": "babel document-promises.js --out-file document-promises.cjs.js -s",
     "prepublish": "npm run test && npm run build",
-    "test": "npm run test:ec && npm run test:es",
-    "test:ec": "echint",
-    "test:es": "eslint document-promises.es6"
+    "test": "eslint document-promises.js"
   },
   "engines": {
-    "node": ">=4.0.0"
+    "node": ">=6.0.0"
   },
   "devDependencies": {
-    "babel-cli": "^6.24.1",
-    "babel-preset-env": "^1.4.0",
-    "echint": "^4.0.1",
-    "echint-config-dev": "^1.0.0",
-    "eslint": "^3.19.0",
+    "@babel/cli": "^7.0.0-rc.1",
+    "@babel/core": "^7.0.0-rc.1",
+    "@babel/preset-env": "^7.0.0-rc.1",
+    "eslint": "^5.3.0",
     "eslint-config-dev": "^2.0.0",
     "pre-commit": "^1.2.2"
   },
   "babel": {
     "presets": [
       [
-        "env",
+        "@babel/preset-env",
         {
           "loose": true
         }
@@ -48,16 +45,17 @@
   "browserslist": [
     "last 2 versions"
   ],
-  "echint": {
-    "extends": "dev"
-  },
   "eslintConfig": {
-    "extends": "dev"
+    "extends": "dev",
+    "rules": {
+      "no-unused-expressions": [
+        0
+      ],
+      "wrap-iife": [
+        0
+      ]
+    }
   },
-  "pre-commit": [
-    "pre-commit",
-    "test"
-  ],
   "keywords": [
     "document",
     "dom",
@@ -70,6 +68,5 @@
     "promise",
     "ponyfill",
     "polyfill"
-  ],
-  "types": "./document-promises.d.ts"
+  ]
 }
